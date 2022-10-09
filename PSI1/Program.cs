@@ -16,29 +16,39 @@ namespace PSI1
         {
             //Introdução ao projeto (menu)
 
-            Console.WriteLine("Bem vindo ao Mini Projeto 1 de PSI!");
-            Console.WriteLine("+---------------------------------+");
-
-            string[] menuarr = new string[3] {"Opção 1", "Opção 2", "Opção 3"};
-
-            foreach (string item in menuarr)
+            while (true)
             {
-                Console.WriteLine(item);
+
+                Console.WriteLine("Bem vindo ao Mini Projeto 1 de PSI!");
+                Console.WriteLine("+---------------------------------+");
+
+                string[] menuarr = new string[3] { "Opção 1", "Opção 2", "Opção 3" };
+
+                foreach (string item in menuarr)
+                {
+                    Console.WriteLine(item);
+                }
+
+                Console.WriteLine("\nIntroduza a opção desejada: ");
+
+
+                string menu_val = Console.ReadLine();
+                Int32.TryParse(menu_val, out int menu_val_int);
+                //Console.WriteLine(menu_val_int.GetType());
+
+
+                Dictionary<int, Func<int>> op = new Dictionary<int, Func<int>>
+                {
+                {1, op0},
+                {2, op1},
+                };
+
+                op[menu_val_int]();
+
+
+                Console.ReadKey();
             }
-
-            Console.WriteLine("\nIntroduza a opção desejada: ");
-            string menu_val = Console.ReadLine();
-
-            Dictionary<int, Func<int>> proc = new Dictionary<int, Func<int>>
-            {
-                {0, op0},
-                {1, op1},
-            };
-
-            op[menu_val]();
-
-
-            Console.ReadKey();
+            
         }
 
         static Int32 op1()
