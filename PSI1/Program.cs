@@ -110,18 +110,16 @@ namespace PSI1
             {
                 for (int j = 0; j < vector.GetLength(1); j++)
                 {
-                    if (i == 0)
+                    
+                    switch(i)
                     {
-                        Console.Write(vector[i, j] + " | ");
+                        case 0:
+                        case 1: 
+                        case 2:
+                            Console.Write(vector[i, j] + " | ");
+                            break;
                     }
-                    else if (i == 1)
-                    {
-                        Console.Write(vector[i, j] + " | ");
-                    }
-                    else if (i == 2)
-                    {
-                        Console.Write(vector[i, j] + " | ");
-                    }
+
                 }
                 Console.WriteLine("\n--------------------+");
             }
@@ -221,7 +219,7 @@ namespace PSI1
             //Caracteres não impresos
             //Conversão de tipos de dinheiro (EUR - USD) por exemplo
 
-            while (true)
+            do
             {
                 //Buscar culturas para a utilização do símbolo da moeda mais tarde
                 CultureInfo usUs = new CultureInfo("us-Us");
@@ -347,6 +345,7 @@ namespace PSI1
                 Console.ReadKey();
                 Console.Clear();
             }
+            while (true);
 
             return 0;
         }
