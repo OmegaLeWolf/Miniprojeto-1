@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -16,6 +17,7 @@ namespace PSI1
 {
     internal class Program
     {
+        public static Process PSI2 = Process.Start("C:\\Users\\Omega\\source\\repos\\PSI1\\PSI2\\bin\\Debug\\PSI2.exe");
         static void Main(string[] args)
         {
             //Codificação do text UTF-8
@@ -23,12 +25,14 @@ namespace PSI1
 
             //Muda a cor do texto para azul
             Console.ForegroundColor = ConsoleColor.Blue;
-            while(true)
+            while (true)
+            {
                 Menu();
+            }
             
         }
 
-        static void Menu()
+        private static void Menu()
         {
             //Introdução ao projeto (menu)
 
@@ -352,10 +356,15 @@ namespace PSI1
 
         static int op4()
         {
+            PSI2.Kill();
             Environment.Exit(1);
+            
             return 0;
         }
 
         
     }
+    
+    
 }
+
